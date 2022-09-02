@@ -10,11 +10,11 @@ export default function Login() {
 
     return (
         <>
-            <div class="bg-white dark:bg-gray-900">
-                <div class="flex justify-center h-screen">
+            <div className="bg-white dark:bg-gray-900">
+                <div className="flex justify-center h-screen">
 
                     {/* bg image */}
-                    <div class="hidden relative lg:block lg:w-2/3">
+                    <div className="hidden relative lg:block lg:w-2/3">
                         {/* image component */}
                         <div className="absolute w-full h-full">
                             <Image src={LoginBg} alt="Workflow" layout='fill' priority/>
@@ -27,15 +27,15 @@ export default function Login() {
                         </div>
                     </div>
                         
-                    <div class="flex items-center w-full max-w-md px-6 mx-auto lg:w-2/6">
-                        <div class="flex-1">
-                            <div class="text-center">
-                                <h2 class="text-4xl font-bold text-center text-gray-700 dark:text-white">Brand</h2>
+                    <div className="flex items-center w-full max-w-md px-6 mx-auto lg:w-2/6">
+                        <div className="flex-1">
+                            <div className="text-center">
+                                <h2 className="text-4xl font-bold text-center text-gray-700 dark:text-white">Brand</h2>
                                     
-                                <p class="mt-3 text-gray-500 dark:text-gray-300">Sign in to access your account</p>
+                                <p className="mt-3 text-gray-500 dark:text-gray-300">Sign in to access your account</p>
                             </div>
 
-                            <div class="mt-8">
+                            <div className="mt-8">
                                 <form>
                                     <div>
                                         {/* Email  */}
@@ -48,7 +48,7 @@ export default function Login() {
                                         />
                                     </div>
 
-                                    <div class="mt-6">
+                                    <div className="mt-6">
                                         {/* Password  */}
                                         <Input 
                                             name="password" 
@@ -61,16 +61,16 @@ export default function Login() {
                                         />
                                     </div>
 
-                                    <div class="mt-6">
+                                    <div className="mt-6">
                                         <button
-                                            class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+                                            className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50">
                                             Sign in
                                         </button>
                                     </div>
 
                                 </form>
 
-                                <p class="mt-6 text-sm text-center text-gray-400">Don&#x27;t have an account yet? <a href="#" class="text-blue-500 focus:outline-none focus:underline hover:underline">Sign up</a>.</p>
+                                <p className="mt-6 text-sm text-center text-gray-400">Don&#x27;t have an account yet? <a href="#" className="text-blue-500 focus:outline-none focus:underline hover:underline">Sign up</a>.</p>
                             </div>
                         </div>
                     </div>
