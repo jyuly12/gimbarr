@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "migrate": "knex migrate:latest --knexfile db/knexfile.js"
   },
   "dependencies": {
     "@next/env": "^12.2.5",
