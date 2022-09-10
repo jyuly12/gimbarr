@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {userServiceFactory} from "../clientServices/userService";
+import {userServiceFactory} from "../services/clientServices/userService";
 import useUser from "../lib/useUser";
 import React from "react";
 import Input from "../components/input";
