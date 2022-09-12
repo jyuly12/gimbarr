@@ -107,7 +107,7 @@ export default function SlideBar({children}: Props) {
 
 
   return (
-    <div className='min-h-screen bg-gray-20 ' >
+    <div className='min-h-screen bg-gray-200' >
         <div className='flex flex-col md:flex-row flex-1'>
             <aside>
                 <motion.div animate={controls} className='max-w-[200px]  animate duration-300 border-r border-gray-300 sticky top-0  flex flex-col pb-10 pt-4 min-h-screen group bg-cyan-900' >                
