@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
+import { useSession, signIn, signOut } from "next-auth/react"
 import NavBar from './navBar';
+
 import { 
     HiMenu,
     HiOutlineX,
@@ -42,8 +44,8 @@ const datafooter = [
   {
     name: '',
     items: [
-      { title: 'Settings',      icon: HiOutlineCog},
-      { title: 'Logout',        icon: HiOutlineLogout,},
+      { title: 'Settings',      icon: HiOutlineCog, action: ''},
+      { title: 'Logout',        icon: HiOutlineLogout, action: () => signOut({ callbackUrl: 'http://localhost:3000/auth/login' }) },
     ]
   },
 ]
@@ -137,10 +139,10 @@ export default function SlideBar({children}: Props) {
                         <motion.p animate={controlTitleText} className='mb-2 ml-4 text-sm font-bold text-white' >{group.name}</motion.p>
 
                         {group.items.map((item, index2) => (
-                            <div key={index2} className='flex px-4 py-1 cursor-pointer' >
+                            <button onClick={ item.action } key={index2} className='flex px-4 py-1 cursor-pointer' >
                               <item.icon className='text-xl text-white' />
                               <motion.p animate={controlText} className='ml-4 text-sm font-bold text-white'> {item.title}</motion.p>
-                            </div>
+                            </button>
 
                         ))}
                         </div>
