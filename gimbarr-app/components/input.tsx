@@ -1,8 +1,8 @@
 interface input{
     id: string,
     name: string,
-    rightroute: string,
-    rightlabel: string,
+    rightroute?: string | null,
+    rightlabel?: string | null,
     type: string,
     label: string,
     placeholder: string
