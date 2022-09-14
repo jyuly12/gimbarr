@@ -43,11 +43,21 @@ model User {
   name          String?
   email         String?   @unique
   emailVerified DateTime?
+  username      String?   @unique
   image         String?
+  post          Post[]
   accounts      Account[]
   sessions      Session[]
 }
-
+model Post{
+  id            String     @id @default(cuid())
+  videoclip     String?    @unique
+  createdAt     DateTime   @default(now())
+  title         String
+  content       String?
+  authorId      String
+  author        User        @relation(fields: [authorId], references: [id])
+}
 model VerificationToken {
   identifier String
   token      String   @unique

@@ -1,6 +1,5 @@
 import SlideBar from "../components/slidebar"
 import NavBar from "../components/navBar"
-import Input from "../components/input"
 import SettingsModal from "../components/settingsModal"
 
 const user = [
@@ -13,7 +12,6 @@ export default function UserSettings(){
     return(
         <SlideBar>
             <div>
-                <NavBar/>
 
                 {/* Settings */}
                 <div className="w-full h-full bg-gray-200 text-center ">
@@ -29,7 +27,7 @@ export default function UserSettings(){
                                 <p>{Item.label}:</p>
                                 <p>{Item.content}</p>
                                 <div className="justify-self-end">
-                                    <SettingsModal name={Item.name}  />
+                                    <SettingsModal label='Edit' name={Item.name}  />
                                 </div>
                             </>
                         ))}
@@ -42,7 +40,7 @@ export default function UserSettings(){
                     {/* Privacity */}
                     <div className="my-5 flex flex-col text-cyan-800">
                         <h2 className="font-bold text-xl self-start ml-14 ">Privacity</h2>
-                        <div className=" w-1/3 gap-y-5 mx-auto p-4 justify-items-start grid grid-cols-2 mb-3">
+                        <div className=" w-1/3 gap-y-5 mx-auto p-4 justify-items-start grid lg:grid-cols-2 mb-3">
                             <p>Password:</p>
                             <input type="password" className="border border-gray-400 rounded-lg px-3 py-1 outline-cyan-700"/>
 

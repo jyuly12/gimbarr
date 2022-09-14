@@ -1,14 +1,26 @@
 import { Menu, Transition } from '@headlessui/react'
-import { BeakerIcon, UserCircleIcon } from '@heroicons/react/24/outline'
-
-
-export default function MyMenu(props) {
-  const links = props.items;
-
+import { UserCircleIcon } from '@heroicons/react/24/outline'
+import Image from 'next/image';
+import UserImg from '../assets/UserDefault.png';
+import { useSession} from "next-auth/react"
+import { 
+  FaUserEdit,
+  FaRegUser,
+  FaRegQuestionCircle } from 'react-icons/fa'
+const links = [
+  { href: '/myProfile', label: 'My Profile',  icon: FaRegUser},
+  { href: '/account-settings', label: 'Account Settings', icon: FaUserEdit},
+  { href: '/support', label: 'Support', icon: FaRegQuestionCircle },
+]
+export default function MyMenu() {
+  
+  const { data: session } = useSession()
+  
   return (
-    <Menu as='div' className='relative inline-block text-left'>
+    <Menu as='div' className='relative inline-block text-left z-20'>
       <div className=''>
-        <Menu.Button className='rounded-full h-12 w-12 place-content-center'>
+        <Menu.Button className='rounded-full h-12 w-12 place-content-center '>
+         {/*  <Image src={} layout="fill"/>  */}
             <UserCircleIcon className='text-base text-gray-600'/>
         </Menu.Button>
       </div>
@@ -21,7 +33,9 @@ export default function MyMenu(props) {
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-            <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+            <Menu.Items 
+              className="absolute right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 
+                  rounded-md  bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                 <div className='px-1 py-1'>
                 {links.map((link) => (
 

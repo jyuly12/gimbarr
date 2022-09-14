@@ -7,7 +7,7 @@ const youtubeUrl = "https://www.youtube.com/watch?v=Pw-0pbY9JeU&list=RDMM&start_
 
 
 
-export default function Component() {
+export default function Index() {
 
   /* videojs */
   const videoId = youtube_parser(youtubeUrl)
@@ -21,9 +21,7 @@ export default function Component() {
       <>       
         <SlideBar>
           <div>
-            {/* navBar */}
-            <NavBar />
-
+            
             {/* Content */}
             <div className='h-full'>
               {/* Week challenge section */}
@@ -36,7 +34,7 @@ export default function Component() {
               {/* more videos */}
               <div className='bg-blue-200'>
                 <div>
-                Signed in as {session.user.email} <br />
+                Signed in as {session?.user?.email} <br />
                 <button onClick={() => signOut()}>Sign out</button>
                 </div>
               </div>  

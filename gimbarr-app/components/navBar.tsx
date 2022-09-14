@@ -2,25 +2,20 @@ import Image from 'next/image'
 import Logo from '../assets/LogoXL.png'
 import {ImSearch} from 'react-icons/im'
 import MyMenu from './menuItem'
-import { 
-  FaUserEdit,
-  FaRegUser,
-  FaRegQuestionCircle } from 'react-icons/fa'
 
-const links = [
-  { href: '/myProfile', label: 'My Profile',  icon: FaRegUser},
-  { href: '/account-settings', label: 'Account Settings', icon: FaUserEdit},
-  { href: '/support', label: 'Support', icon: FaRegQuestionCircle },
-]
+
+
+
 
 export default function NavBar(){
     /* Controlador de busquedas */
     const SubmitSearch =()=>{
     console.log('realiza busqueda');
+    
   }
     return (
         <div>
-            <div className='bg-gray-300 w-full h-16 flex flex-row'>
+            <div className='bg-gray-300 w-full h-16 flex flex-row '>
 
             {/* logo-section */}
             <div className='basis-1/4 h-16 flex ml-10 items-center'>
@@ -46,7 +41,7 @@ export default function NavBar(){
             {/* User */}
             <div className='basis-1/4 flex justify-end items-center'>
               <div className=' w-full h-full my-auto items-center flex justify-end pr-5'>
-                <MyMenu items={links}/>
+                <MyMenu />
               </div>
               
             </div>

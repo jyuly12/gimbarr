@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-
+import NavBar from './navBar';
 import { 
     HiMenu,
     HiOutlineX,
@@ -29,10 +29,10 @@ const data = [
   {
     name: 'Manage',
     items: [
-      { title: 'Bookmarks',       icon: ImCalendar},
-      { title: 'Reading history', icon: ImCalendar},
-      { title: 'Focus Mode',      icon: ImCalendar},
-      { title: 'Customize',       icon: ImCalendar},
+      { title: 'Bookmarks',       icon: ImCalendar, href: '/'},
+      { title: 'Reading history', icon: ImCalendar, href: '/'},
+      { title: 'Focus Mode',      icon: ImCalendar, href: '/'},
+      { title: 'Customize',       icon: ImCalendar, href: '/'},
     ]
   },
 ]
@@ -120,10 +120,11 @@ export default function SlideBar({children}: Props) {
                         <motion.p animate={controlTitleText} className='mb-2 ml-4 text-sm font-bold text-white' >{group.name}</motion.p>
 
                         {group.items.map((item, index2) => (
-                            <div key={index2} className={`flex  w-full ${active ? 'px-4 hover:bg-cyan-700' : 'justify-center'} py-2 cursor-pointer `} >
+                          
+                            <a key={index2} href={item.href} className={`flex  w-full ${active ? 'px-4 hover:bg-cyan-700' : 'justify-center'} py-2 cursor-pointer `} >
                             <item.icon className='text-xl text-white' />
                             <motion.p animate={controlText} className='ml-4 text-sm font-bold text-white ' > {item.title}</motion.p>
-                            </div>
+                            </a>
 
                         ))}
                         </div>
@@ -145,11 +146,12 @@ export default function SlideBar({children}: Props) {
                         </div>
                     ))}
                     </div>
-
                 </motion.div>
             </aside>
 
-            <main className='flex-1'>{children}</main>
+            <main className='flex-1'>
+              <NavBar/>
+              {children}</main>
         </div>
     </div>
   )
