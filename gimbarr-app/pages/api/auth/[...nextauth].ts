@@ -37,6 +37,7 @@ const options = {
       adapter: PrismaAdapter(prisma),
 
       pages:{
-        signIn: "/auth/login"
+        signIn: "/auth/login",
+        newUser: '/profile/create'
       }
 }
