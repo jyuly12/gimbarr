@@ -20,7 +20,7 @@ export type PostProps = {
 
 const Index: React.FC<{ post: PostProps }> = ({ post }) => {
   const authorName = post.author ? post.author.name : "Unknown author";
-  const authorImg = post.author ? post.author.image : UserDefault;
+  const authorImg =  post?.author?.image || UserDefault;
 
   const videourl = videoURL(post.videoclip)
 

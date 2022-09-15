@@ -12,6 +12,7 @@ interface modal{
   title: string,
   content : any,
   buttons: boolean,
+  buttonStyle: string, 
   icon: string,
 }
 
@@ -46,7 +47,7 @@ export default function SettingsModal(props:modal) {
         <button
           type="button"
           onClick={openModal}
-          className="flex gap-x-2 items-center rounded-md bg-opacity-20  bg-cyan-900 px-4 py-2 text-sm font-medium text-cyan-800 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+          className={props.buttonStyle}
         >
           {props.icon === 'pencil' ? <HiOutlinePencil/> : <HiOutlinePlusCircle/>} 
           {props.label}
