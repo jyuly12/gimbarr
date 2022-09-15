@@ -48,15 +48,24 @@ model User {
   post          Post[]
   accounts      Account[]
   sessions      Session[]
+  profile       Profile[]
 }
+
 model Post{
-  id            Int     @id @default(autoincrement())
-  videoclip     String?    @unique
-  published     Boolean @default(false)
+  id            Int         @id @default(autoincrement())
+  videoclip     String?     @unique
+  published     Boolean     @default(true)
   title         String
   content       String?
   authorId      Int
   author        User        @relation(fields: [authorId], references: [id])
+}
+
+model Profile{
+  id            Int         @id @default(autoincrement())
+  username      String      @unique
+  userId        Int
+  user          User        @relation(fields: [userId], references: [id])
 }
 model VerificationToken {
   identifier String

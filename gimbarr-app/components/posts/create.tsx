@@ -4,11 +4,12 @@ import Router from "next/router";
 const CreatePost: React.FC = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [video, setVideo] = useState("");
 
   const submitData = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     try {
-      const body = { title, content };
+      const body = { title, video, content };
       await fetch(`/api/post/create`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -36,6 +37,15 @@ const CreatePost: React.FC = () => {
             value={title}
             className="w-full p-2 mt-2 border-4 border-gray-300 rounded-md"
           />
+          
+          {/* Post Youtube video link */}
+          <input 
+            type="text"
+            autoFocus
+            onChange={(e) => setVideo(e.target.value)}
+            placeholder="Insert your video link"
+            value={video}
+            className="w-full p-2 mt-2 border-4 border-gray-300 rounded-md"/>
 
           {/* Post description */}
           <textarea
