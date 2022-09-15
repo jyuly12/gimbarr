@@ -1,5 +1,4 @@
 import SlideBar from "../components/slidebar"
-import NavBar from "../components/navBar"
 import SettingsModal from "../components/settingsModal"
 
 const user = [

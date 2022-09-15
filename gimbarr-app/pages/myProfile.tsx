@@ -1,12 +1,10 @@
 import SlideBar from "../components/slidebar"
-import NavBar from "../components/navBar"
 import Image from "next/image"
 import { useSession } from "next-auth/react"
 import BgImage from "../assets/background.png"
 import UserDefault from "../assets/UserDefault.png"
 import SettingsModal from "../components/settingsModal"
 import CreatePost from "../components/posts/create"
-
 
 
 export default function ProfilePanel(){
