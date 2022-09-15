@@ -12,8 +12,8 @@ generator client {
 }
 
 model Account {
-  id                 String  @id @default(cuid())
-  userId             String
+  id                 Int     @id @default(autoincrement())
+  userId             Int
   type               String
   provider           String
   providerAccountId  String
@@ -31,15 +31,15 @@ model Account {
 }
 
 model Session {
-  id           String   @id @default(cuid())
+  id           Int     @id @default(autoincrement())
   sessionToken String   @unique
-  userId       String
+  userId       Int
   expires      DateTime
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model User {
-  id            String    @id @default(cuid())
+  id            Int     @id @default(autoincrement())
   name          String?
   email         String?   @unique
   emailVerified DateTime?
@@ -50,12 +50,12 @@ model User {
   sessions      Session[]
 }
 model Post{
-  id            String     @id @default(cuid())
+  id            Int     @id @default(autoincrement())
   videoclip     String?    @unique
-  createdAt     DateTime   @default(now())
+  published     Boolean @default(false)
   title         String
   content       String?
-  authorId      String
+  authorId      Int
   author        User        @relation(fields: [authorId], references: [id])
 }
 model VerificationToken {
