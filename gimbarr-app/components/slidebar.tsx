@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useSession, signIn, signOut } from "next-auth/react"
 import NavBar from './navBar';
-
+import {FaRegUser} from 'react-icons/fa'
 import { 
     HiMenu,
     HiOutlineX,
@@ -31,10 +31,10 @@ const data = [
   {
     name: 'Manage',
     items: [
-      { title: 'Bookmarks',       icon: ImCalendar, href: '/'},
-      { title: 'Reading history', icon: ImCalendar, href: '/'},
+      { title: 'My Profile',       icon: FaRegUser , href: '/myProfile'},
+      /* { title: 'Reading history', icon: ImCalendar, href: '/'},
       { title: 'Focus Mode',      icon: ImCalendar, href: '/'},
-      { title: 'Customize',       icon: ImCalendar, href: '/'},
+      { title: 'Customize',       icon: ImCalendar, href: '/'}, */
     ]
   },
 ]
@@ -44,7 +44,7 @@ const datafooter = [
   {
     name: '',
     items: [
-      { title: 'Settings',      icon: HiOutlineCog, action: ''},
+      /* { title: 'Settings',      icon: HiOutlineCog, action: ''}, */
       { title: 'Logout',        icon: HiOutlineLogout, action: () => signOut({ callbackUrl: 'http://localhost:3000/auth/login' }) },
     ]
   },
