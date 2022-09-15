@@ -25,11 +25,7 @@ const CreatePost: React.FC = () => {
   return (
     <>
       <div>
-        <SettingsModal 
-          buttons={false}
-          label= 'Add New Video'
-          title= 'Add Video'
-          content = {
+        
           <form onSubmit={submitData}>
 
           <h1>New Draft</h1>
@@ -72,7 +68,7 @@ const CreatePost: React.FC = () => {
             or Cancel
           </a>
         </form>
-        }/>     
+          
         
 
       </div>

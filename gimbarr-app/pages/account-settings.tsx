@@ -28,7 +28,7 @@ export default function UserSettings(){
                                 <p>{item.content}</p>
                                 <div className="justify-self-end">                                    
                                     {/* name */}
-                                    <SettingsModal buttons={true}  label='Edit' title={item.label} name={item.name}  
+                                    <SettingsModal buttons={true}  icon='pencil' label='Edit' title={item.label} name={item.name}  
                                     content={
                                         <div className="py-6 grid grid-cols-2 gap-6">
                                             <p className="capitalize">{item.name}:</p>

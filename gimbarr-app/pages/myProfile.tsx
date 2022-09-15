@@ -39,7 +39,7 @@ export default function ProfilePanel(){
                                 <h2 className="p-2 text-3xl capitalize text-cyan-900 font-bold">{session?.user?.name}</h2>
                             </div>
                             <div className="flex justify-end mt-3">
-                                <SettingsModal buttons={false} title="update your images" label="Edit Profile" name="profile" content={
+                                <SettingsModal buttons={false} title="update your images" label="Edit Profile" icon='pencil' name="profile" content={
                                     <div>
                                     <hr className='border mt-2 border-gray-300'/>
                                     <div className='flex justify-between  my-3'>
@@ -79,7 +79,14 @@ export default function ProfilePanel(){
                         <button className="shadow-xl rounded-2xl bg-gray-400 border-black w-2/3 mx-auto">Add New Video</button>
 
                             {/* Create a new post */}
-                            <CreatePost/>
+                            <SettingsModal 
+                                buttons={false}
+                                name = ''
+                                label= 'Add New Video'
+                                title= 'Add Video'
+                                icon= 'plus'
+                                content = {
+                                    <CreatePost/>}/>
 
                             <div className="grid grid-cols-4">
                                 

@@ -4,14 +4,15 @@ import Image from "next/image"
 import { useSession } from "next-auth/react"
 import BgImage from "../assets/background.png"
 import UserDefault from "../assets/UserDefault.png"
-import { HiOutlinePencil } from "react-icons/hi";
+import { HiOutlinePencil, HiOutlinePlusCircle } from "react-icons/hi";
 
 interface modal{
   label: string,
   name: string,
   title: string,
   content : any,
-  buttons: boolean
+  buttons: boolean,
+  icon: string,
 }
 
 export default function SettingsModal(props:modal) {
@@ -47,7 +48,7 @@ export default function SettingsModal(props:modal) {
           onClick={openModal}
           className="flex gap-x-2 items-center rounded-md bg-opacity-20  bg-cyan-900 px-4 py-2 text-sm font-medium text-cyan-800 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
         >
-          <HiOutlinePencil/>
+          {props.icon === 'pencil' ? <HiOutlinePencil/> : <HiOutlinePlusCircle/>} 
           {props.label}
         </button>
       </div>
