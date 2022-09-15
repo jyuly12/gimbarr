@@ -3,9 +3,10 @@ import LoginBg from "../public/images/login.avif";
 
 interface Props {
     children: React.ReactNode
+    title: string | null
 }
 
-export default function Loginlayout({children}: Props) {
+export default function Loginlayout(props: Props) {
     return (
         <>
           <div className="bg-white dark:bg-gray-900">
@@ -27,14 +28,13 @@ export default function Loginlayout({children}: Props) {
                 <div className="flex items-center w-full max-w-md px-6 mx-auto lg:w-2/6">
                     <div className="flex-1">
                         <div className="text-center">
-                            <h2 className="text-4xl font-bold text-center text-gray-700 dark:text-white">Brand</h2>
+                            <h2 className="text-4xl font-bold text-center text-gray-700 dark:text-white">{props.title ?? 'Gimbarr'}</h2>
                             <p className="mt-3 text-gray-500 dark:text-gray-300">Sign in to access your account</p>
                         </div>
 
                         <div className="mt-8">
                             {/*  */}
-                            {children}
-                            <p className="mt-6 text-sm text-center text-gray-400">Don&#x27;t have an account yet? <a href="#" className="text-blue-500 focus:outline-none focus:underline hover:underline">Sign up</a>.</p>
+                            {props.children}
                         </div>
                     </div>
                 </div>
