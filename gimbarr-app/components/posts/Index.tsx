@@ -16,7 +16,7 @@ export type PostProps = {
 const Index: React.FC<{ post: PostProps }> = ({ post }) => {
   const authorName = post.author ? post.author.name : "Unknown author";
   return (
-    <div className="bg-white hover:shadow-xl  my-2" onClick={() => Router.push("/post/[id]", `/post/${post.id}`)}>
+    <div className="bg-white hover:shadow-xl  my-2" /* onClick={() => Router.push("/post/[id]", `/post/${post.id}`)} */>
       <h2>{post.title}</h2>
       <small>By {authorName}</small>
       <ReactMarkdown children={post.content} />
