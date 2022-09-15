@@ -41,7 +41,34 @@ export default function ProfilePanel(){
                                 <h2 className="p-2 text-3xl capitalize text-cyan-900 font-bold">{session?.user?.name}</h2>
                             </div>
                             <div className="flex justify-end mt-3">
-                                <SettingsModal label="Edit Profile" name="profile"/>
+                                <SettingsModal buttons={false} title="update your images" label="Edit Profile" name="profile" content={
+                                    <div>
+                                    <hr className='border mt-2 border-gray-300'/>
+                                    <div className='flex justify-between  my-3'>
+                                      <h1 className='font-semibold'>Profile Image</h1>
+                                      <button 
+                                          className='text-cyan-700 font-medium hover:bg-slate-300 p-1 rounded-lg'
+                                          >Edit
+                                      </button>
+                                    </div>
+                                    <div className='w-[150px] h-[150px] relative mx-auto'>
+                                      <Image alt="user image" src={ session?.user?.image || UserDefault} layout='fill' className="border rounded-full self-center"/>
+                                    </div>
+                                    <hr className='border mt-2 border-gray-300'/>
+                                    <div className='flex justify-between  my-3'>
+                                      <h1 className='font-semibold'>Cover Photo</h1>
+                                      <button 
+                                          className='text-cyan-700 font-medium hover:bg-slate-300 p-1 rounded-lg'
+                                          
+                                          >Edit
+                                      </button>
+                                    </div>
+                                    <div className='w-[300px] h-[150px] relative mx-auto'>
+                                      <Image alt="user banner" src={ BgImage} layout='fill' className="self-center"/>
+                                    </div>
+                                    
+                                  </div>
+                                }/>
                             </div>
                         </div>
                     </div>

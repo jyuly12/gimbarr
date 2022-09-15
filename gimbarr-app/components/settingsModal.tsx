@@ -9,6 +9,9 @@ import { HiOutlinePencil } from "react-icons/hi";
 interface modal{
   label: string,
   name: string,
+  title: string,
+  content : any,
+  buttons: boolean
 }
 
 export default function SettingsModal(props:modal) {
@@ -67,79 +70,28 @@ export default function SettingsModal(props:modal) {
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900 capitalize"
                   >
-                    {props.name}
+                    {props.title}
                   </Dialog.Title>
-                  { props.name == 'name' && 
-                    <div className="py-6 grid grid-cols-2 gap-6">
-                      <p>Name: </p>
-                      <input type="text" className='border border-gray-400 rounded-lg px-3 py-1 outline-cyan-700'/>
-                      <p>Last Name:</p>
-                      <input type="text" className='border border-gray-400 rounded-lg px-3 py-1 outline-cyan-700'/>
-                  </div>
-                  }
+                    {props.content}
 
-                  { props.name == 'username' &&
-                    <div className="py-6 grid grid-cols-2 gap-6">
-                      <p>Username: </p>
-                      <input type="text" className='border border-gray-400 rounded-lg px-3 py-1 outline-cyan-700'/>
-                      {/* <button className='text-gray-700 bord '>
-                        verify
-                      </button> */}
-                    </div>
-                  }
-
-                  {
-                    props.name == 'email' && 
-                    <div className="py-6 grid grid-cols-2 gap-6">
-                      <p>Email:</p>
-                      <input type="email" className='border border-gray-400 rounded-lg px-3 py-1 outline-cyan-700'/>
-                    </div>                    
-                  }
-                  {
-                    props.name == 'profile' &&
-                    <div>
-                      <hr className='border mt-2 border-gray-300'/>
-                      <div className='flex justify-between  my-3'>
-                        <h1 className='font-semibold'>Profile Image</h1>
-                        <button 
-                            className='text-cyan-700 font-medium hover:bg-slate-300 p-1 rounded-lg'
-                            >Edit
+                    {props.buttons && 
+                      <div className="mt-4 flex gap-x-5">
+                        <button
+                          type="button"
+                          className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                          onClick={closeModal}
+                        >
+                          Cancel
+                        </button>
+                        <button
+                          type='button'
+                          className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                          onClick={upload}
+                        >
+                          Upload Changes
                         </button>
                       </div>
-                      <div className='w-[150px] h-[150px] relative mx-auto'>
-                        <Image src={ session?.user?.image || UserDefault} layout='fill' className="border rounded-full self-center"/>
-                      </div>
-                      <hr className='border mt-2 border-gray-300'/>
-                      <div className='flex justify-between  my-3'>
-                        <h1 className='font-semibold'>Cover Photo</h1>
-                        <button 
-                            className='text-cyan-700 font-medium hover:bg-slate-300 p-1 rounded-lg'
-                            
-                            >Edit
-                        </button>
-                      </div>
-                      <div className='w-[300px] h-[150px] relative mx-auto'>
-                        <Image src={ BgImage} layout='fill' className="self-center"/>
-                      </div>
-                      
-                    </div>
-                  }
-                  <div className="mt-4 flex gap-x-5">
-                    <button
-                      type="button"
-                      className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                      onClick={closeModal}
-                    >
-                      Cancel
-                    </button>
-                    <button
-                      type='button'
-                      className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                      onClick={upload}
-                    >
-                      Upload Changes
-                    </button>
-                  </div>
+                    }
                 </Dialog.Panel>
               </Transition.Child>
             </div>

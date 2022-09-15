@@ -3,7 +3,8 @@ import NavBar from "../components/navBar"
 import SettingsModal from "../components/settingsModal"
 
 const user = [
-    { label: 'Name',          content: 'Pepito Perez',        name: 'name',      },
+    { label: 'Name',          content: 'Pepito ',             name: 'name',      },
+    { label: 'Last name',          content: 'perez',          name: 'last',      },
     { label: 'Username',      content: 'pepito123',           name: 'username',  },
     { label: 'Email',         content: 'pepito@gmail.com',    name: 'email',     }
 ]
@@ -22,12 +23,19 @@ export default function UserSettings(){
                         <h2 className="font-bold text-xl self-start ml-14 ">User Settings</h2>
                         <div className=" w-3/4 gap-y-5 mx-auto grid grid-cols-3  p-4 justify-items-start mt-6 ">
                        
-                        {user.map((Item)=> (
+                        {user.map((item)=> (
                             <>
-                                <p>{Item.label}:</p>
-                                <p>{Item.content}</p>
-                                <div className="justify-self-end">
-                                    <SettingsModal label='Edit' name={Item.name}  />
+                                <p>{item.label}:</p>
+                                <p>{item.content}</p>
+                                <div className="justify-self-end">                                    
+                                    {/* name */}
+                                    <SettingsModal buttons={true}  label='Edit' title={item.label} name={item.name}  
+                                    content={
+                                        <div className="py-6 grid grid-cols-2 gap-6">
+                                            <p className="capitalize">{item.name}:</p>
+                                            <input type="email" className='border border-gray-400 rounded-lg px-3 py-1 outline-cyan-700'/>
+                                      </div>
+                                    }/>
                                 </div>
                             </>
                         ))}
