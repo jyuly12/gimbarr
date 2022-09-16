@@ -1,5 +1,4 @@
 import React from "react";
-import Router from "next/router";
 import Image from "next/image"
 import UserDefault from "../../assets/UserDefault.png"
 import ReactMarkdown from "react-markdown";
@@ -21,7 +20,7 @@ export type PostProps = {
 const Index: React.FC<{ post: PostProps }> = ({ post }) => {
   const authorName = post.author ? post.author.name : "Unknown author";
   const authorImg =  post?.author?.image || UserDefault;
-
+  console.log(post)
   const videourl = videoURL(post.videoclip)
 
   return (
