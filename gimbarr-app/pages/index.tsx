@@ -4,6 +4,9 @@ import type { GetServerSideProps } from "next";
 import prisma from '../lib/prisma'
 import IndexPost, { PostProps } from "../components/posts/Index";
 import { videoURL } from "../lib/video";
+import { useRouter } from 'next/router';
+import { useEffect } from "react";
+
 
 
 /* browse published videos */
@@ -31,18 +34,23 @@ type Props = {
 };
 
 export default function Index(props:Props) {
-
+  
   /* videojs */
   const youtubeUrl = "https://www.youtube.com/watch?v=jfKfPfyJRdk&ab_channel=LofiGirl"
   
   const { data: session } = useSession()
+  const router = useRouter();
 
   
-  if (!session) {
-
-  }
+  useEffect(()=> {
+    if (!session) {
+      router.push('/auth/login');
+    }
+  })
+  
+  if (session)  {
     return (
-        <>       
+        <>     
           <SlideBar>
             <div className="mx-auto max-w-6xl w-4/5">
 
@@ -77,5 +85,6 @@ export default function Index(props:Props) {
           </SlideBar> 
         </>
     )  
+  }
 } 
 
