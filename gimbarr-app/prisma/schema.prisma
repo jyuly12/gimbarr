@@ -45,6 +45,7 @@ model User {
   emailVerified DateTime?
   image         String?
   post          Post[]
+  tournament    Tournament[]
   accounts      Account[]
   sessions      Session[]
   profile       Profile[]
@@ -58,6 +59,18 @@ model Post{
   content       String?
   authorId      Int
   author        User        @relation(fields: [authorId], references: [id])
+}
+
+
+model Tournament{
+  id            Int         @id @default(autoincrement())
+  location     String?     @unique
+  published     Boolean     @default(true)
+  title         String
+  description   String?
+  price         Int
+  userId        Int
+  sponsor        User        @relation(fields: [userId], references: [id])
 }
 
 model Profile{

@@ -43,7 +43,7 @@ export default function SettingsModal(props:modal) {
 
   return (
     <>
-      <div className="">
+      <div className=" w-full ">
         <button
           type="button"
           onClick={openModal}

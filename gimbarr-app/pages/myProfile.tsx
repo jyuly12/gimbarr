@@ -5,6 +5,7 @@ import BgImage from "../assets/background.png"
 import UserDefault from "../assets/UserDefault.png"
 import SettingsModal from "../components/settingsModal"
 import CreatePost from "../components/posts/create"
+import CreateTournament from "../components/tournaments/create"
 import prisma from '../lib/prisma'
 import type { GetServerSideProps } from "next";
 import IndexPost, { PostProps } from "../components/posts/profile";
@@ -111,17 +112,31 @@ export default function ProfilePanel(props:Props){
                         {/* user posts */}
                         <div className="w-4/5 mx-auto h-auto mt-5 flex flex-col">
 
-                                {/* Create a new post */}
-                                <SettingsModal 
-                                    buttons={false}
-                                    name = ''
-                                    label= 'Add New Video'
-                                    title= 'Add Video'
-                                    icon= 'plus'
-                                    buttonStyle= "flex w-2/3 mx-auto gap-x-2 justify-center items-center rounded-md bg-opacity-20  bg-cyan-900 px-auto py-2 text-md font-medium text-cyan-800 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
-                                    content = {
-                                    <CreatePost/>}
-                                />                         
+                                <div className=" flex gap-x-2 w-full">
+                                    {/* Create a new post */}
+                                    <SettingsModal 
+                                        buttons={false}
+                                        name = ''
+                                        label= 'Add New Video'
+                                        title= 'Add Video'
+                                        icon= 'plus'
+                                        buttonStyle= "flex w-2/3 mx-auto gap-x-2 justify-center items-center rounded-md bg-opacity-20  bg-cyan-900 px-auto py-2 text-md font-medium text-cyan-800 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                                        content = {
+                                        <CreatePost/>}
+                                    />  
+
+                                    {/* Create a new tournament */}
+                                    <SettingsModal 
+                                        buttons={false}
+                                        name = ''
+                                        label= 'Add New tournament'
+                                        title= 'new tournament'
+                                        icon= 'plus'
+                                        buttonStyle= "flex w-2/3 mx-auto gap-x-2 justify-center items-center rounded-md bg-opacity-20  bg-cyan-900 px-auto py-2 text-md font-medium text-cyan-800 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                                        content = {
+                                        <CreateTournament/>}
+                                    />   
+                                </div>                      
                                     
                                 {/* video section */}
                                 <div className="page mt-6">
