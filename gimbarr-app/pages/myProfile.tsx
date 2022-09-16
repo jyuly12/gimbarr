@@ -115,9 +115,8 @@ export default function ProfilePanel(props:Props){
                                 icon= 'plus'
                                 buttonStyle= "flex w-2/3 mx-auto gap-x-2 justify-center items-center rounded-md bg-opacity-20  bg-cyan-900 px-auto py-2 text-md font-medium text-cyan-800 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
                                 content = {
-                                    <CreatePost/>}/>
-                        
-                            
+                                <CreatePost/>}
+                            />                         
                                 
                             {/* video section */}
                             <div className="page mt-6">

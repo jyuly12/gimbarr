@@ -1,4 +1,4 @@
-import React from "react";
+import Router from "next/router";
 import ReactMarkdown from "react-markdown";
 import { videoURL } from "../../lib/video";
 
@@ -23,7 +23,7 @@ const Post: React.FC<{ post: PostProps }> = ({ post }) => {
   return (
     <div className="">
     
-    <div className="bg-white hover:shadow-2xl rounded-xl p-8  " /* onClick={() => Router.push("/post/[id]", `/post/${post.id}`)} */>
+    <div className="bg-white hover:shadow-2xl rounded-xl p-8" onClick={() => Router.push("/post/[id]", `/post/${post.id}`)}>
       
       <div className="overflow-hidden  w-auto mb-2">
      
