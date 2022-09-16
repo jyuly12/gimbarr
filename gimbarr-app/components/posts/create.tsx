@@ -64,7 +64,7 @@ const CreatePost: React.FC = () => {
           className="bg-gray-200  py-4 px-8"/>
           
           {/* when cancel redirect to*/}
-          <a className="ml-4" href="#" onClick={() => Router.push("/")}>
+          <a className="ml-4" href="#" onClick={() => Router.push("http://localhost:3000/myProfile")}>
             or Cancel
           </a>
         </form>
