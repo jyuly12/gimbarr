@@ -14,13 +14,7 @@ const user = [
 export default function UserSettings(){
     
     const { data: session } = useSession()
-    const router = useRouter();
-  
-    useEffect(()=> {
-      if (!session) {
-        router.push('/auth/login');
-      }
-    })
+   
     if (session)  {
         return(
             <SlideBar>

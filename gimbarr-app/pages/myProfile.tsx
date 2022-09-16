@@ -41,11 +41,7 @@ export default function ProfilePanel(props:Props){
     const { data: session } = useSession()
     const router = useRouter();
   
-    useEffect(()=> {
-      if (!session) {
-        router.push('/auth/login');
-      }
-    })
+    
     if (session)  {
         return(
             <SlideBar>
