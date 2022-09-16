@@ -40,7 +40,6 @@ export default function Index(props:Props) {
   
   const { data: session } = useSession()
   const router = useRouter();
-
   
   useEffect(()=> {
     if (!session) {
