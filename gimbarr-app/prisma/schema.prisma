@@ -43,7 +43,6 @@ model User {
   name          String?
   email         String?   @unique
   emailVerified DateTime?
-  username      String?   @unique
   image         String?
   post          Post[]
   accounts      Account[]
@@ -69,7 +68,7 @@ model Profile{
 }
 model VerificationToken {
   identifier String
-  token      String   @unique
+  token      String         @unique
   expires    DateTime
 
   @@unique([identifier, token])
