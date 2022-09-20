@@ -4,10 +4,17 @@ export type UserProps = {
   id: number;
   name: string;
   email: string;
+  emailverified: Date;
   image: String;
   profile: {
     username: string;
     } ;       
+};
+
+export type Profile = {
+  id: number;
+  emailverified: Date;
+  username: string;      
 };
 
 const UserData: React.FC<{ post: UserProps }> = ({ post }) => {

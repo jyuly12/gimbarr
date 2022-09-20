@@ -26,12 +26,7 @@ const CreateData: React.FC = () => {
 
   const { data: session } = useSession()
   const router = useRouter();
-  
-  useEffect(()=> {
-    if (!session) {
-      router.push('/auth/login');
-    }
-  })
+
   
   if (session)  { 
     return (

@@ -9,39 +9,71 @@ import CreateTournament from "../components/tournaments/create"
 import prisma from '../lib/prisma'
 import type { GetServerSideProps } from "next";
 import IndexPost, { PostProps } from "../components/posts/profile";
+import UserDataPost,    { Profile}  from "../components/user/settings";
 import { useRouter } from "next/router"
-import { useEffect } from "react"
+import IndexTournament, { TournamentProps } from "../components/tournaments/profile"
 
 /* browse published videos */
 export const getServerSideProps: GetServerSideProps = async (req) => {
-  const session  = await getSession(req)
-  const feed = await prisma.post.findMany({
-    where: {
-      author: { email: session?.user?.email},
-      published: true,
-    },
-    include: {
-      author: {
-        select: {
-          name: true,
+    const session  = await getSession(req)
+  
+    const feed = await prisma.post.findMany({
+        where: {
+        author: { email: session?.user?.email},
+        published: true,
         },
-      },
-    },
-  });
-  return {
-    props: { feed },
-};
+        include: {
+        author: {
+            select: {
+            name: true,
+            },
+        },
+        },
+    });
+
+    let settings = await prisma.profile.findMany({
+        where: {
+            user: {email: session?.user?.email}
+        },
+    });    
+
+    settings = JSON.parse(JSON.stringify(settings))
+    
+
+    const tournaments = await prisma.tournament.findMany({
+        where: {
+            sponsor: { email: session?.user?.email},
+            published: true,
+        },
+        include: {
+            sponsor: {
+                select: {
+                    name: true,
+                },
+            },
+        },
+    });
+
+    return {
+        props: { feed, settings, tournaments },
+    };
+    
 };
 
 type Props = {
   feed: PostProps[];
+  tournaments: TournamentProps[];
+  settings: Profile[];
 };
 
 
 export default function ProfilePanel(props:Props){
     const { data: session } = useSession()
     const router = useRouter();
-  
+    /* const settingss = [ props.settings ]
+    const profile =  settingss.map((item)=>(return()))
+    const usernameData = profile.map((item)=>{console.log(item.profile.username)}) */
+    const usernameData =props.settings.map((item)=>{return item.username})
     
     if (session)  {
         return(
@@ -70,7 +102,7 @@ export default function ProfilePanel(props:Props){
 
                                 {/* user name and  edit profile */}
                                 <div className=" grow mt-2 justify-start">
-                                    <h2 className="p-2 text-3xl capitalize text-cyan-900 font-bold">{session?.user?.name}</h2>
+                                    <h2 className="p-2 text-3xl capitalize text-cyan-900 font-bold">{session?.user?.name || usernameData }</h2>
                                 </div>
                                 <div className="flex justify-end mt-3">
                                     <SettingsModal 
@@ -147,6 +179,14 @@ export default function ProfilePanel(props:Props){
 
                                             {/* individual Video Post */}
                                             <IndexPost post={post} />
+                                        </div>
+                                        ))}
+                                        
+                                        {props.tournaments.map((tournament) => (
+                                        <div key={tournament.id} className="post ">
+
+                                            {/* individual Video Post */}
+                                            <IndexTournament tournament={tournament} />
                                         </div>
                                         ))}
                                     </main>

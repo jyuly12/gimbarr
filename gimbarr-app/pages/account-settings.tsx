@@ -9,7 +9,7 @@ import prisma from '../lib/prisma'
 
 export const getServerSideProps: GetServerSideProps = async (req) => {
   const session  = await getSession(req)
-  const settings = await prisma.user.findMany({
+  let settings = await prisma.user.findMany({
     where: {
       email: session?.user?.email,
     },
@@ -17,10 +17,12 @@ export const getServerSideProps: GetServerSideProps = async (req) => {
       profile: {
         select: {
           username: true,
+        
         },
       },
     },
   });
+  settings = JSON.parse(JSON.stringify(settings))
   return {
     props: { settings },
 };
