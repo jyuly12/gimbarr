@@ -1,5 +1,5 @@
 import Image from "next/image";
-import LoginBg from "../public/images/login.avif";
+import LoginBg from "../public/images/bg-gimbar.png";
 
 interface Props {
     children: React.ReactNode
@@ -17,11 +17,11 @@ export default function Loginlayout(props: Props) {
                     {/* image component */}
                     <div className="absolute w-full h-full">
                         <Image src={LoginBg} alt="Workflow" layout='fill' priority/>
-                        {/* central text */}
+                        {/* central text 
                         <div className="absolute lg:top-1/3 xl:top-1/2  lg:left-10 xl:left-1/3  opacity-60 rounded p-4 bg-white " >
                             <p className="text-4xl font-bold text-gray-600">Brand</p>
                             <p className="max-w-xl mt-3 text-gray-900">Lorem ipsum dolor sit, amet consectetur adipisicing elit. In autem ipsa, nulla laboriosam dolores, repellendus perferendis libero suscipit nam temporibus molestiae</p>
-                        </div>
+                        </div>*/}
                     </div>
                 </div>
                         
