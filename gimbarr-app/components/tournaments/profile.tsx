@@ -1,45 +1,50 @@
-import Router from "next/router";
 import ReactMarkdown from "react-markdown";
-import { videoURL } from "../../lib/video";
+import Image from "next/image"
+import Router from "next/router";
+import UserDefault from "../../assets/UserDefault.png"
 
-export type PostProps = {
+export type TournamentProps = {
   id: number;
-  videoclip: string;
   title: string;
-  author: {
+  description: string;
+  location: string;
+  price: number;
+  published: boolean;
+  sponsor: {
     name: string;
     email: string;
+    image: string;
   } | null;
-  content: string;
-  
-  published: boolean;
 };
 
-const Post: React.FC<{ post: PostProps }> = ({ post }) => {
-  const authorName = post.author ? post.author.name : "Unknown author";
-
-  const videourl = videoURL(post.videoclip)
+const Tournament: React.FC<{ tournament: TournamentProps }> = ({ tournament }) => {
+  console.log(tournament)
+  const authorName = tournament.sponsor ? tournament.sponsor.name : "Unknown author";
+  const authorImg =  tournament?.sponsor?.image || UserDefault;
 
   return (
-    <div className="">
-    
-    <div className="bg-white hover:shadow-2xl rounded-xl p-8" onClick={() => Router.push("/post/[id]", `/post/${post.id}`)}>
+    <div className="bg-white hover:shadow-md rounded-xl p-8 " onClick={() => Router.push("/tournament/[id]", `/tournament/${tournament.id}`)}>
       
-      <div className="overflow-hidden  w-auto mb-2">
-     
-        <iframe src={videourl} className="w-full h-[14rem] my-2" />
-      </div>
-        <h2 className="font-semibold text-lg uppercase">{post.title}</h2>
+      <div className="overflow-hidden mx-auto w-[80%] mb-2">
+        <h2 className="font-semibold text-lg uppercase">{tournament.title}</h2>
         
+      </div>
+      <div className="w-[80%] mx-auto">
+        
+        <div className="flex flex-row ">
+          <div className="w-6 h-6 relative bg-slate-50 border rounded-full ">
+            <Image alt="user profile" src={ authorImg } layout='fill' className="border rounded-full self-center"/>
+          </div>
+          <p className="">By {authorName}</p>
+        </div>
         <div className="text-md mt-2">
           <p className="font-semibold">Description:</p>
-          <ReactMarkdown children={post.content} className="text-sm capitalize" />
+          <ReactMarkdown children={tournament.description} className="text-sm capitalize" />
         </div>
       </div>
       
     </div>
-    
   );
 };
 
-export default Post;
+export default Tournament;

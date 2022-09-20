@@ -7,18 +7,19 @@ import { getSession } from 'next-auth/react'
 // Required fields in body: title
 // Optional fields in body: content
 export default async function handle(req: NextApiRequest, res: NextApiResponse) {
-  const { title, content, video } = req.body;
-  const postId = req.query.id;
+  const { title, description, location, price } = req.body;
+  const TournamentId = req.query.id;
 
   const session = await getSession({ req });
   if (session) {
-    const result = await prisma.post.update({
-        where: { id: Number(postId) },
+    const result = await prisma.tournament.update({
+        where: { id: Number(TournamentId) },
         data: {
             title: title,
-            content: content,
-            videoclip: video,
-            author: { connect: { email: session?.user?.email } },
+            description: description,
+            location: location,
+            price: price,
+            sponsor: { connect: { email: session?.user?.email } },
         },
     });
     res.json(result);console.log(req.body);

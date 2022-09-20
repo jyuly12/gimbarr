@@ -29,7 +29,7 @@ const CreateTournament: React.FC = () => {
         
           <form onSubmit={submitData}>
 
-          {/* Post Title */}
+          {/* Tournament Title */}
           <input
             autoFocus
             onChange={(e) => setTitle(e.target.value)}
@@ -39,7 +39,7 @@ const CreateTournament: React.FC = () => {
             className="w-full p-2 mt-2 border-4 border-gray-300 rounded-md"
           />
           
-          {/* Post Youtube video link */}
+          {/* Tournament location */}
           <input 
             type="text"
             autoFocus
@@ -48,7 +48,7 @@ const CreateTournament: React.FC = () => {
             value={location}
             className="w-full p-2 mt-2 border-4 border-gray-300 rounded-md"/>
 
-          {/* Post description */}
+          {/* Tournament description */}
           <textarea
             cols={50}
             onChange={(e) => setDescription(e.target.value)}
@@ -58,7 +58,7 @@ const CreateTournament: React.FC = () => {
             className="w-full p-2 mt-2  border-4 border-gray-300 rounded-md"
           />
           
-          {/* Post Price */}
+          {/* Tournament Price */}
           <input 
             type="text"
             autoFocus

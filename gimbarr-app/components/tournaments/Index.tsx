@@ -19,6 +19,7 @@ export type TournamentProps = {
 };
 
 const Index: React.FC<{ tournament: TournamentProps }> = ({ tournament }) => {
+
   const authorName = tournament.sponsor ? tournament.sponsor.name : "Unknown author";
   const authorImg =  tournament?.sponsor?.image || UserDefault;
 
