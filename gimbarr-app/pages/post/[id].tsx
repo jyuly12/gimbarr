@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { GetServerSideProps } from "next";
 import ReactMarkdown from "react-markdown";
 import Router, { useRouter } from "next/router";
-import { PostProps } from "../../components/Post";
+import { PostProps } from "../../components/posts/Index";
 import prisma from '../../lib/prisma'
 import { useSession } from "next-auth/react";
 import SlideBar from "../../components/slidebar";

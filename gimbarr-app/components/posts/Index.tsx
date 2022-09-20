@@ -3,6 +3,7 @@ import Image from "next/image"
 import UserDefault from "../../assets/UserDefault.png"
 import ReactMarkdown from "react-markdown";
 import { videoURL } from "../../lib/video";
+
 export type PostProps = {
   id: number;
   videoclip: string;
